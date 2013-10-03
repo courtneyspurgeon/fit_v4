@@ -8,10 +8,12 @@ gem 'rails', '4.0.0'
 
 gem 'mysql2'
 gem 'devise'
-gem 'bootstrap-sass'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
+gem 'bootstrap-sass'
+gem 'bootswatch-rails'
+gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git" # image attachments
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -30,6 +32,10 @@ gem 'turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
+
+group :assets do
+
+end
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

@@ -1,0 +1,43 @@
+<h1>Listing reviews</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Waist fit</th>
+      <th>Hip fit</th>
+      <th>Thigh fit</th>
+      <th>Rise</th>
+      <th>Waist measure</th>
+      <th>Hip measure</th>
+      <th>Thigh measure</th>
+      <th>Content</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @reviews.each do |review| %>
+      <tr>
+        <td><%= review.title %></td>
+        <td><%= review.waist_fit %></td>
+        <td><%= review.hip_fit %></td>
+        <td><%= review.thigh_fit %></td>
+        <td><%= review.rise %></td>
+        <td><%= review.waist_measure %></td>
+        <td><%= review.hip_measure %></td>
+        <td><%= review.thigh_measure %></td>
+        <td><%= review.content %></td>
+        <td><%= link_to 'Show', review %></td>
+        <td><%= link_to 'Edit', edit_review_path(review) %></td>
+        <td><%= link_to 'Destroy', review, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Review', new_review_path %>

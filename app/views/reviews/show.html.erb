@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @review.title %>
+</p>
+
+<p>
+  <strong>Waist fit:</strong>
+  <%= Review::WAIST_FIT[@review.waist_fit]%>
+</p>
+
+<p>
+  <strong>Hip fit:</strong>
+  <%= Review::HIP_FIT[@review.hip_fit] %>
+</p>
+
+<p>
+  <strong>Thigh fit:</strong>
+  <%= Review::THIGH_FIT[@review.thigh_fit] %>
+</p>
+
+<p>
+  <strong>Rise:</strong>
+  <%= Review::RISE[@review.rise] %>
+</p>
+
+<p>
+  <strong>Waist measure:</strong>
+  <%= @review.waist_measure %>
+</p>
+
+<p>
+  <strong>Hip measure:</strong>
+  <%= @review.hip_measure %>
+</p>
+
+<p>
+  <strong>Thigh measure:</strong>
+  <%= @review.thigh_measure %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @review.content %>
+</p>
+
+<p>
+<%= image_tag @review.image.url %>
+<%= image_tag @review.image.url(:medium) %>
+<%= image_tag @review.image.url(:thumb) %>
+</p>
+
+<%= link_to 'Edit', edit_review_path(@review) %> |
+<%= link_to 'Back', reviews_path %>

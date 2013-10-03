@@ -1,3 +1,13 @@
+GIT
+  remote: git://github.com/thoughtbot/paperclip.git
+  revision: 2f404c9f1b21015ca5b5a71868c8a63984fa8cd1
+  specs:
+    paperclip (3.5.1)
+      activemodel (>= 3.0.0)
+      activesupport (>= 3.0.0)
+      cocaine (~> 0.5.0)
+      mime-types
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -28,7 +38,15 @@ GEM
     arel (4.0.0)
     atomic (1.1.14)
     bcrypt-ruby (3.1.2)
+    bootstrap-sass (2.3.2.2)
+      sass (~> 3.2)
+    bootswatch-rails (0.5.0)
+      railties (>= 3.1)
     builder (3.1.4)
+    climate_control (0.0.3)
+      activesupport (>= 3.0)
+    cocaine (0.5.2)
+      climate_control (>= 0.0.3, < 1.0)
     coffee-rails (4.0.0)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0.beta, < 5.0)
@@ -118,10 +136,13 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bootstrap-sass
+  bootswatch-rails
   devise
   jbuilder (~> 1.2)
   jquery-rails
   mysql2
+  paperclip!
   rails (= 4.0.0)
   sass-rails (~> 4.0.0)
   sdoc

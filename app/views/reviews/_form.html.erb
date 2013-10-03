@@ -1,0 +1,63 @@
+<%= form_for(@review) do |f| %>
+  <% if @review.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h2>
+
+      <ul>
+      <% @review.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :waist_fit %><br>
+    <%= f.collection_select(:waist_fit, Review::WAIST_FIT, :first, :last,
+      {:selected => 3}) %>
+  </div>
+  <div class="field">
+    <%= f.label :hip_fit %><br>
+    <%= f.collection_select(:hip_fit, Review::HIP_FIT, :first, :last,
+        {:selected => 3}) %>
+  </div>
+  <div class="field">
+    <%= f.label :thigh_fit %><br>
+    <%= f.collection_select(:thigh_fit, Review::THIGH_FIT, :first, :last, 
+        {:selected => 3}) %>
+  </div>
+  <div class="field">
+    <%= f.label :rise %><br>
+    <%= f.collection_select(:rise, Review::RISE, :first, :last,
+        {:selected => 3}) %>
+  </div>
+  <div class="field">
+    <%= f.label :waist_measure %><br>
+    <%= f.number_field :waist_measure %>
+  </div>
+  <div class="field">
+    <%= f.label :hip_measure %><br>
+    <%= f.number_field :hip_measure %>
+  </div>
+  <div class="field">
+    <%= f.label :thigh_measure %><br>
+    <%= f.number_field :thigh_measure %>
+  </div>
+  <div class="field">
+    <%= f.label :content %><br>
+    <%= f.text_area :content %>
+  </div>
+
+  <div class="field">
+    <%= f.label :image %><br>
+    <%= f.file_field :image %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

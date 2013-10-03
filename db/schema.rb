@@ -11,7 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131003185129) do
+ActiveRecord::Schema.define(version: 20131003203055) do
+
+  create_table "brands", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "members", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -27,9 +33,46 @@ ActiveRecord::Schema.define(version: 20131003185129) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "username"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   add_index "members", ["email"], name: "index_members_on_email", unique: true, using: :btree
   add_index "members", ["reset_password_token"], name: "index_members_on_reset_password_token", unique: true, using: :btree
+
+  create_table "pants", force: true do |t|
+    t.string   "name"
+    t.integer  "year"
+    t.integer  "style"
+    t.integer  "price_range"
+    t.integer  "brand_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+  end
+
+  create_table "reviews", force: true do |t|
+    t.string   "title"
+    t.integer  "waist_fit"
+    t.integer  "hip_fit"
+    t.integer  "thigh_fit"
+    t.integer  "rise"
+    t.integer  "waist_measure"
+    t.integer  "hip_measure"
+    t.integer  "thigh_measure"
+    t.text     "content"
+    t.integer  "pant_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+  end
 
 end
