@@ -1,4 +1,12 @@
 GIT
+  remote: git://github.com/thomas-mcdonald/bootstrap-sass.git
+  revision: 0e88056ac5d58fb0bbd23d3fe929eac01712d964
+  branch: 3
+  specs:
+    bootstrap-sass (3.0.0.0)
+      sass (~> 3.2)
+
+GIT
   remote: git://github.com/thoughtbot/paperclip.git
   revision: 2f404c9f1b21015ca5b5a71868c8a63984fa8cd1
   specs:
@@ -38,10 +46,6 @@ GEM
     arel (4.0.0)
     atomic (1.1.14)
     bcrypt-ruby (3.1.2)
-    bootstrap-sass (2.3.2.2)
-      sass (~> 3.2)
-    bootswatch-rails (0.5.0)
-      railties (>= 3.1)
     builder (3.1.4)
     climate_control (0.0.3)
       activesupport (>= 3.0)
@@ -136,8 +140,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bootstrap-sass
-  bootswatch-rails
+  bootstrap-sass!
   devise
   jbuilder (~> 1.2)
   jquery-rails

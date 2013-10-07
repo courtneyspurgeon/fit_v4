@@ -8,57 +8,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
+  <%= render partial: 'layouts/shared/nav' %> 
 
-  <div class="navbar navbar-fixed-top">
-    <div class="navbar-inner">
-      <div class="container">
-        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </a>
-        <a class="brand" href="#">Will it Fit?</a>
-        <div class="nav-collapse">
-          <ul class="nav navbar-nav">
-            <li><%= link_to "Find Pants", pants_path %></li>
-            <li><%= link_to "New Pant", new_pant_path %></li>
-            <li><%= link_to "See Reviews", reviews_path %></li>
-            <li><%= link_to "New Review", new_review_path %></li>
-            <% if member_signed_in? %>
-              <li>
-              <%= link_to('Logout', destroy_member_session_path, :method=>'delete') %>
-              </li>
-            <% else %>
-              <li>
-              <%= link_to('Login', new_member_session_path)  %>
-              </li>
-            <% end %>
-            <% if member_signed_in? %>
-              <li>
-              <%= link_to('Edit account', edit_member_registration_path) %>
-              </li>
-            <% else %>
-              <li>
-              <%= link_to('Sign up', new_member_registration_path)  %>
-              </li>
-            <% end %>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div>
+  <div class="container">
+    <div class="row row-offcanvas">
       <%= render partial: 'layouts/shared/flash_messages', flash: flash %> 
     </div>
   </div>
 
   <div class="container">
+
     <div class="row">
-      <div class="span9"><%= yield %></div>
-      <div class="span3">
-        <h2>About Us</h2>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      <div class="col-lg-9">
+        <%= yield %>
       </div>
-    </div>
-  </div>
+
+      <div class="col-lg-3" id="sidebar" role="navigation">
+         <div class="well sidebar-nav">
+            <ul class="nav">
+              <li>Sidebar</li>
+              <li class="active"><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+              <li>Sidebar</li>
+              <li><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+              <li>Sidebar</li>
+              <li><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+            </ul>
+          </div><!--/.well -->
+      </div> <!-- /#sidebar -->
+
+    </div> <!-- /.row -->
+
+  </div><!-- ./container -->
 </body>
 </html>
