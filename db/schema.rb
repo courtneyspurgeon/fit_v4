@@ -11,7 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131003203055) do
+ActiveRecord::Schema.define(version: 20131008011754) do
+
+  create_table "attachments", force: true do |t|
+    t.integer  "attachable_id"
+    t.string   "attachable_type"
+    t.string   "type"
+    t.string   "attached_file_name"
+    t.string   "attached_content_type"
+    t.integer  "attached_file_size"
+    t.datetime "attached_updated_at"
+    t.text     "description"
+    t.integer  "created_by_id"
+    t.integer  "updated_by_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+  end
 
   create_table "brands", force: true do |t|
     t.string   "name"
@@ -33,10 +51,9 @@ ActiveRecord::Schema.define(version: 20131003203055) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "username"
-    t.string   "avatar_file_name"
-    t.string   "avatar_content_type"
-    t.integer  "avatar_file_size"
-    t.datetime "avatar_updated_at"
+    t.integer  "waist_measurement"
+    t.integer  "hip_measurement"
+    t.integer  "thigh_measurement"
   end
 
   add_index "members", ["email"], name: "index_members_on_email", unique: true, using: :btree

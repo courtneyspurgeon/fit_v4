@@ -3,6 +3,8 @@ class Review < ActiveRecord::Base
 
   has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100>", :full => "600x600" }
 
+  #has_many :attachments
+  
   WAIST_FIT = {
     1 => 'Very baggy',
     2 => 'Ok with a belt',

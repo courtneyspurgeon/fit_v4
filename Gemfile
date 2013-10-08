@@ -12,7 +12,7 @@ gem 'devise'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 gem 'bootstrap-sass', github: 'thomas-mcdonald/bootstrap-sass', branch: '3'  #bootstrap v3
-gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git" # image attachments
+gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git", branch: 'rails-4' # image attachments
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'

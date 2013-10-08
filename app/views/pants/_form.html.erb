@@ -1,4 +1,4 @@
-<%= form_for(@pant) do |f| %>
+<%= form_for(@pant, :html => { :multipart => true }) do |f| %>
   <% if @pant.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@pant.errors.count, "error") %> prohibited this pant from being saved:</h2>
@@ -28,9 +28,13 @@
     <%= f.number_field :style %>
   </div>
   <div class="field">
+    <%= f.label :image, "Attach a File" %>
+    <%= f.file_field :image %>
     <%= f.label :price_range %><br>
     <%= f.number_field :price_range %>
   </div>
+  <div class="field">
+
   <div class="actions">
     <%= f.submit %>
   </div>

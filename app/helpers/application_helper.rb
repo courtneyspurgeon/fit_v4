@@ -15,8 +15,4 @@ module ApplicationHelper
     end
   end # end bootstrap class_for
 
-  def form_wrapper field_name
-    
-  end
-
 end

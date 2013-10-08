@@ -24,6 +24,12 @@
   <strong>Price range:</strong>
   <%= @pant.price_range %>
 </p>
+<%= image_tag @pant.image.url %>
+<%# @pant.images.each do |image|  %>
+<%#= image_tag image.url %>
+<%#= image_tag image.url(:medium) %>
+<%#= image_tag image.url(:thumb) %>
+<%# end %>
 
 <%= link_to 'Edit', edit_pant_path(@pant) %> |
 <%= link_to 'Back', pants_path %>
