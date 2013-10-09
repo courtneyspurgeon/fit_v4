@@ -1,3 +1,4 @@
+<div class="row">
 <%= form_for(@review) do |f| %>
   <% if @review.errors.any? %>
     <div id="error_explanation">
@@ -11,53 +12,95 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :waist_fit %><br>
-    <%= f.collection_select(:waist_fit, Review::WAIST_FIT, :first, :last,
-      {:selected => 3}) %>
-  </div>
-  <div class="field">
-    <%= f.label :hip_fit %><br>
-    <%= f.collection_select(:hip_fit, Review::HIP_FIT, :first, :last,
-        {:selected => 3}) %>
-  </div>
-  <div class="field">
-    <%= f.label :thigh_fit %><br>
-    <%= f.collection_select(:thigh_fit, Review::THIGH_FIT, :first, :last, 
-        {:selected => 3}) %>
-  </div>
-  <div class="field">
-    <%= f.label :rise %><br>
-    <%= f.collection_select(:rise, Review::RISE, :first, :last,
-        {:selected => 3}) %>
-  </div>
-  <div class="field">
-    <%= f.label :waist_measure %><br>
-    <%= f.number_field :waist_measure %>
-  </div>
-  <div class="field">
-    <%= f.label :hip_measure %><br>
-    <%= f.number_field :hip_measure %>
-  </div>
-  <div class="field">
-    <%= f.label :thigh_measure %><br>
-    <%= f.number_field :thigh_measure %>
-  </div>
-  <div class="field">
-    <%= f.label :content %><br>
-    <%= f.text_area :content %>
+  <div class="col-md-6">
+    <h4>About the Pant</h4>
+    <div class="form-group">
+      <%= f.label :title %><br>
+      <%= f.text_field :title %>
+    </div>
+    <div class="field">
+      <%= f.label :content, 'Comments' %><br>
+      <%= f.text_area :content, rows: '4', class: 'form-control' %>
+    </div>
+
+    <div class="field">
+      <%= f.label :image, 'Upload a photo?' %><br>
+      <%= f.file_field :image %>
+    </div>
+
   </div>
 
-  <div class="field">
-    <%= f.label :image %><br>
-    <%= f.file_field :image %>
+  <div class="col-md-6">
+
+    <button type="button" class="btn btn-danger" data-toggle="collapse" data-target="#current_measurements">
+      toggle measurements
+    </button>
+
+
+    <h4>Rate the Fit</h4>
+    <% if @user %>
+      <div class="radio">
+        <label><input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>Rate using my saved measurements</label>
+      </div>
+      <div class="radio">
+        <label>
+          <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2" data-toggle="collapse" data-target="#current_measurements">Enter new measurements
+        </label>
+      </div>
+    <% else %>
+      Please enter your measurements:
+    <% end %>
+
+    <div id="current_measurements" class="collapse in">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="field">
+            <%= f.label :waist_measurement %><br>
+            <%= f.number_field :waist_measurement, value: (params[:waist_measure] or @member ? @member.waist_measurement : '') %>
+          </div>
+          <div class="field">
+            <%= f.label :hip_measurement %><br>
+            <%= f.number_field :hip_measurement %>
+          </div>
+          <div class="field">
+            <%= f.label :thigh_measurement %><br>
+            <%= f.number_field :thigh_measurement %>
+          </div>
+        </div>
+        <div class="col-md-8">
+          Picture explaining how to measure
+        </div>
+
+      </div>
+        
+    </div>
+
+      
+    <div class="field">
+      <%= f.label :waist_fit %><br>
+      <%= f.collection_select(:waist_fit, Review::WAIST_FIT, :first, :last,
+        {:selected => 3}) %>
+    </div>
+    <div class="field">
+      <%= f.label :hip_fit %><br>
+      <%= f.collection_select(:hip_fit, Review::HIP_FIT, :first, :last,
+          {:selected => 3}) %>
+    </div>
+    <div class="field">
+      <%= f.label :thigh_fit %><br>
+      <%= f.collection_select(:thigh_fit, Review::THIGH_FIT, :first, :last, 
+          {:selected => 3}) %>
+    </div>
+    <div class="field">
+      <%= f.label :rise %><br>
+      <%= f.collection_select(:rise, Review::RISE, :first, :last,
+          {:selected => 3}) %>
+    </div>
   </div>
+  
 
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+</div> <!-- /.row -->

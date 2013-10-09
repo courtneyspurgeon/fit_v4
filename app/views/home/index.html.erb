@@ -8,5 +8,10 @@
 <h1>Test rails project</h1>
 <%= link_to "Sign In", new_member_session_path, :method => :get %>
 <%= link_to "Sign up", new_member_registration_path, :method => :get %>
-
+<%= form_tag pants_path, :method => 'get' do %>
+    <p>
+      <%= text_field_tag :search, params[:search] %>
+      <%= submit_tag "Search", :name => nil %>
+    </p>
+  <% end %>
 <% end %>

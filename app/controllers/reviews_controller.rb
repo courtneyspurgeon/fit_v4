@@ -21,6 +21,7 @@ class ReviewsController < ApplicationController
   # GET /reviews/new
   def new
     @review = Review.new
+    setup_measurements
   end
 
   # GET /reviews/1/edit
@@ -77,5 +78,13 @@ class ReviewsController < ApplicationController
     def review_params
       params.require(:review).permit(:title, :waist_fit, :hip_fit, :thigh_fit, :rise, 
           :waist_measure, :hip_measure, :thigh_measure, :content, :image)
+    end
+
+    def setup_measurements
+      if member_signed_in?
+        @member = current_member
+      else
+        @member = nil;
+      end
     end
 end

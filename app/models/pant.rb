@@ -17,4 +17,13 @@ class Pant < ActiveRecord::Base
     5 => 'Canvas',
     6 => 'Other'
   }
+
+  def self.search(search)
+    if search
+      where 'name LIKE ?', "%#{search}%"
+    else
+      scoped
+    end
+  end
+  
 end

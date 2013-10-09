@@ -13,7 +13,12 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Find Pants <b class="caret"></b></a>
           <ul class="dropdown-menu">
-            <li><%= link_to "Search", '#' %></li>
+            <li><%= form_tag pants_path, :method => 'get' do %>
+              <p>
+                <%= text_field_tag :search, params[:search], placeholder: 'Search pant names' %>
+                <%= submit_tag "Search", :name => nil %>
+              </p>
+            <% end %></li>
             <li><%= link_to "Show All Pants", pants_path %></li>
             <li><%= link_to "Add New Pant", new_pant_path %></li>
             <li class="divider"></li>

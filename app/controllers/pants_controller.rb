@@ -4,7 +4,11 @@ class PantsController < ApplicationController
   # GET /pants
   # GET /pants.json
   def index
-    @pants = Pant.all
+    if params[:search]
+      @pants = Pant.search(params[:search])
+    else
+      @pants = Pant.all
+    end
   end
 
   # GET /pants/1

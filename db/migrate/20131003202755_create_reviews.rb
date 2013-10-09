@@ -6,9 +6,9 @@ class CreateReviews < ActiveRecord::Migration
       t.integer :hip_fit
       t.integer :thigh_fit
       t.integer :rise
-      t.integer :waist_measure
-      t.integer :hip_measure
-      t.integer :thigh_measure
+      t.integer :waist_measurement
+      t.integer :hip_measurement
+      t.integer :thigh_measurement
       t.text :content
       t.integer :pant_id
 
