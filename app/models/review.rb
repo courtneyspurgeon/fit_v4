@@ -12,6 +12,7 @@ class Review < ActiveRecord::Base
     4 => 'Bit tight',
     5 => 'Too tight'
   }
+  
   HIP_FIT = {
     1 => 'Very baggy',
     2 => 'Good fit, and I like loose pants',
@@ -29,11 +30,11 @@ class Review < ActiveRecord::Base
   }
 
   RISE = {
-    1 => 'Very Low',
-    2 => 'Low',
-    3 => 'Mid',
-    4 => 'High-Rise',
-    5 => 'Very High Rise'
+    1 => 'Ultra-Low Rise',
+    2 => 'Low Rise',
+    3 => 'Mid Rise',
+    4 => 'Just Below Waist',
+    5 => 'At Waist'
   }
 
 end

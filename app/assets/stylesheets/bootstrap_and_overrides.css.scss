@@ -19,8 +19,10 @@ body { padding-top: 60px; } // Bootstrap body padding for fixed navbar
 input[type="text"], input[type="password"], input[type="search"],
 input[type="number"], input[type="email"], select { @extend .form-control; }
 label { @extend .control-label; }
-.half-col { @extend .col-lg-6 }
-
+.col-half { @extend .col-lg-6; }
+.col-full { @extend .col-xs-12; }
+.col-1-4 { @extend .col-md-4; @extend .col-xs-2; }
+.grid-tile {@extend .col-lg-2; @extend .col-md-4; @extend .col-sm-6}
 input[type="submit"] {
   @extend .btn;
   @extend .btn-primary;

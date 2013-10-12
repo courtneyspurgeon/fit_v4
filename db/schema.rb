@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131008011754) do
+ActiveRecord::Schema.define(version: 20131011211931) do
 
   create_table "attachments", force: true do |t|
     t.integer  "attachable_id"
@@ -64,6 +64,11 @@ ActiveRecord::Schema.define(version: 20131008011754) do
     t.integer  "year"
     t.integer  "style"
     t.integer  "price_range"
+    t.integer  "pant_type",                                   default: 1
+    t.integer  "leg_cut"
+    t.integer  "body_shape"
+    t.integer  "rise"
+    t.decimal  "exact_rise",         precision: 10, scale: 0
     t.integer  "brand_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -90,6 +95,15 @@ ActiveRecord::Schema.define(version: 20131008011754) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+  end
+
+  create_table "store_links", force: true do |t|
+    t.string   "name"
+    t.string   "source"
+    t.string   "url"
+    t.integer  "pant_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

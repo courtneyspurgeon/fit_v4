@@ -1,4 +1,4 @@
-<%= form_for(@pant, :html => { :multipart => true }) do |f| %>
+<%= form_for(setup_links(@pant), :html => { :multipart => true }) do |f| %>
   <% if @pant.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@pant.errors.count, "error") %> prohibited this pant from being saved:</h2>
@@ -21,11 +21,27 @@
   </div>
   <div class="field">
     <%= f.label :year %><br>
-    <%= f.select :year, options_for_select((Time.now.year.to_i).downto(1995).to_a)%>
+    <%= f.collection_select :year, Pant::YEAR_OPTIONS, :first, :last,
+        {:selected => 1} %>
+  </div>
+
+  <div class="field">
+    <%= f.label :leg_cut %><br>
+    <%= f.collection_select :leg_cut, Pant::LEG_CUT, :first, :last,
+        {:selected => 2} %>
   </div>
   <div class="field">
-    <%= f.label :style %><br>
-    <%= f.number_field :style %>
+    <%= f.label :body_shape %><br>
+    <%= f.collection_select :body_shape, Pant::BODY_SHAPE, :first, :last,
+        {:selected => 2} %>
+  </div>
+
+  <div class="field">
+    <%= f.label :rise %><br>
+    <%= f.collection_select :rise, Pant::RISE, :first, :last,
+        {:selected => 3} %>
+    <%= f.label :exact_rise %><br>
+    <%= f.text_field :exact_rise %>
   </div>
   <div class="field">
     <%= f.label :image, "Attach a File" %>
@@ -33,7 +49,20 @@
     <%= f.label :price_range %><br>
     <%= f.number_field :price_range %>
   </div>
+
   <div class="field">
+    <%= content_tag :h4, 'Links to Places to purchase the pant' %>
+    <%= f.fields_for :store_links, @pant.store_links do |ff| %>
+      <div>
+        <%= ff.label :name %>
+        <%= ff.text_field :name %>
+        <%= ff.label :url %>
+        <%= ff.text_field :url %>
+      </div>
+    <% end %>
+
+
+  </div>
 
   <div class="actions">
     <%= f.submit %>

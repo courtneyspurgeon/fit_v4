@@ -30,6 +30,16 @@
 <%#= image_tag image.url(:medium) %>
 <%#= image_tag image.url(:thumb) %>
 <%# end %>
+<% if @pant.reviews.length > 0 %>
+  <%= 'Has a review' %>
+<% end %>
+
+<% if @pant.store_links.length > 0 %>
+  <%=  @pant.store_links.first.url %>
+<% end %>
+
+
+
 
 <%= link_to 'Edit', edit_pant_path(@pant) %> |
 <%= link_to 'Back', pants_path %>

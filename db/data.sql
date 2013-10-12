@@ -23,16 +23,6 @@
 # Dump of table brands
 # ------------------------------------------------------------
 
-DROP TABLE IF EXISTS `brands`;
-
-CREATE TABLE `brands` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) DEFAULT NULL,
-  `created_at` datetime DEFAULT NOW(),
-  `updated_at` datetime DEFAULT NOW(),
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
 LOCK TABLES `brands` WRITE;
 /*!40000 ALTER TABLE `brands` DISABLE KEYS */;
 
@@ -57,6 +47,29 @@ VALUES
   (17,'Gramicci',NULL,NULL);
 
 /*!40000 ALTER TABLE `brands` ENABLE KEYS */;
+
+LOCK TABLES `pants` WRITE;
+/*!40000 ALTER TABLE `pants` DISABLE KEYS */;
+
+INSERT INTO `pants` (`id`, `name`, `year`, `style`, `price_range`, `pant_type`, `leg_cut`, `body_shape`, `rise`, `exact_rise`, `brand_id`, `created_at`, `updated_at`, `image_file_name`, `image_content_type`, `image_file_size`, `image_updated_at`)
+VALUES
+  (1,'Skinny Straight Leg Dark Wash',2013,NULL,NULL,1,2,2,3,7,1,'2013-10-11 19:14:36','2013-10-11 19:31:57','skinny_straight_7.jpeg','image/jpeg',67248,'2013-10-11 19:31:56'),
+  (2,'Skinny Bootcut NY Dark Wash',2013,NULL,NULL,1,3,1,2,7,1,'2013-10-11 19:31:41','2013-10-11 19:31:41','boot_cut.jpeg','image/jpeg',69246,'2013-10-11 19:31:41'),
+  (3,'A-Pocket Flare, Nouveau NY Wash',2013,NULL,NULL,1,6,1,2,7,1,'2013-10-11 19:35:22','2013-10-11 19:35:22','a-pocket_7.jpeg','image/jpeg',62813,'2013-10-11 19:35:22');
+
+/*!40000 ALTER TABLE `pants` ENABLE KEYS */;
+UNLOCK TABLES;
+
+LOCK TABLES `store_links` WRITE;
+/*!40000 ALTER TABLE `store_links` DISABLE KEYS */;
+
+INSERT INTO `store_links` (`id`, `name`, `source`, `url`, `pant_id`, `created_at`, `updated_at`)
+VALUES
+  (1,'Macys Test',NULL,'http://www1.macys.com/shop/product/7-for-all-mankind-jeans-skinny-straight-leg-dark-wash?ID=643573&CategoryID=3111&RVI=PDP_2',1,'2013-10-11 21:49:46','2013-10-11 23:10:17'),
+  (2,'Macy\'s',NULL,'http://www1.macys.com/shop/product/7-for-all-mankind-jeans-a-pocket-flare-nouveau-ny-wash?ID=645606&CategoryID=3111&LinkType=PDPZ1',3,'2013-10-11 21:52:09','2013-10-11 21:52:09'),
+  (3,'Macys',NULL,'http://www1.macys.com/shop/product/7-for-all-mankind-jeans-skinny-bootcut-ny-dark-wash?ID=643574&CategoryID=3111&RVI=PDP_1',2,'2013-10-11 22:27:53','2013-10-11 22:27:53');
+
+/*!40000 ALTER TABLE `store_links` ENABLE KEYS */;
 UNLOCK TABLES;
 
 
