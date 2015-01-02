@@ -81,10 +81,10 @@ class ReviewsController < ApplicationController
     end
 
     def setup_measurements
-      if member_signed_in?
-        @member = current_member
+      if user_signed_in?
+        @user = current_user
       else
-        @member = nil;
+        @user = nil;
       end
     end
 end

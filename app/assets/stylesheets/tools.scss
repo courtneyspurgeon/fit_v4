@@ -1,5 +1,6 @@
 .col-half { 
-  @extend .col-lg-6; 
+  @extend .col-lg-6;
+  @extend .col-md-6;
 }
 .col-full { 
   @extend .col-xs-12; 

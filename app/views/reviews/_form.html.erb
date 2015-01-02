@@ -1,5 +1,6 @@
+<div class="row">
 
-<%= form_for(@review) do |f| %>
+<%= simple_form_for(@review) do |f| %>
   <% if @review.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h2>
@@ -36,8 +37,7 @@
       </div>
       <div class="panel-body">
         <div class="form-group">
-          <%= f.label :title %><br>
-          <%= f.text_field :title %>
+          <%= f.input :title %>
         </div>
         <div class="field">
           <%= f.label :content, 'Comments' %><br>
@@ -81,16 +81,13 @@
       <div class="row">
         <div class="col-md-4">
           <div class="field">
-            <%= f.label :waist_measurement %><br>
-            <%= f.number_field :waist_measurement, value: (params[:waist_measurement] or @user ? @user.waist_measurement : '') %>
+            <%= f.input :waist_measurement, value: (params[:waist_measurement] or @user ? @user.waist_measurement : '') %>
           </div>
           <div class="field">
-            <%= f.label :hip_measurement %><br>
-            <%= f.number_field :hip_measurement %>
+            <%= f.input :hip_measurement %>
           </div>
           <div class="field">
-            <%= f.label :thigh_measurement %><br>
-            <%= f.number_field :thigh_measurement %>
+            <%= f.input :thigh_measurement %>
           </div>
         </div>
         <div class="col-md-8">
@@ -110,3 +107,5 @@
     <%= f.submit %>
   </div>
 <% end %>
+
+</div>

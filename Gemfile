@@ -40,8 +40,8 @@ gem 'jbuilder', '~> 1.2'
 
 
 # Convenience gems
-# enum for storing ratings, etc
-gem 'active_enum', github: 'adzap/active_enum'
+gem 'active_enum', github: 'adzap/active_enum' #for storing ratings, etc
+gem 'simple_form' # for cleaner form templates
 
 group :assets do
 
