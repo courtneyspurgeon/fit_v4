@@ -12,30 +12,34 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="col-md-6">
-    <div class="panel panel-primary">
-      <div class="panel-heading">
-        <h3 class="panel-title">About the Fit</h3>
-      </div>
-      <div class="panel-body">
-        <h4>Hip/Butt Fit</h4>
-        <%= f.select :hip_fit, HipFit.to_select, required: true, selected: 3 %>
-        <h4>Waist Fit</h4>
-        <%= f.select :waist_fit, WaistFit.to_select, required: true, selected: 3 %>
-        <h4>Hip/Butt Fit</h4>
-        <%= f.select :thigh_fit, ThighFit.to_select, required: true, selected: 3 %>
-        <h4>Overall, how much you like these pants?</h4>
-      </div>
-    </div>
+  <div class="col-full">
+    <h3 class="section-title">Reviewing Pant: </h3>
+    
+  </div>
+  <div class="col-1-4">
+    <%= f.label :pant_id, 'Select the Pant' %>
+    <% pants_array = Pant.all.map { |pant| [pant.brand.name + ' - ' + pant.name, pant.id] } %>
+    <%#= f.collection_select(:pant_id, Pant.all, :id, :name) %>
+    <%#= f.collection_select(:pant_id, pants_array) %>
+    <%= f.select(:pant_id, pants_array) %>
+    <%#= f.options_for_select(:pant_id, pants_array) %>
   </div>
 
-  <div class="col-md-6">
-    <div class="panel panel-primary">
-      <div class="panel-heading">
+  <div class="col-half">
+      <h3 class="panel-title">About the Fit</h3>
+      
+        <%= f.label :hip_fit, 'Hip/Butt Fit' %>
+        <%= f.select :hip_fit, HipFit.to_select, required: true, selected: 3 %>
+        <%= f.label :waist_fit %>
+        <%= f.select :waist_fit, WaistFit.to_select, required: true, selected: 3 %>
+        <%= f.label :thigh_fit %>
+        <%= f.select :thigh_fit, ThighFit.to_select, required: true, selected: 3 %>
+        <h4>Overall, how much you like these pants?</h4>
+  </div>
+
+  <div class="col-half">
         <h3 class="panel-title">In your words</h3>
-      </div>
-      <div class="panel-body">
+      
         <div class="form-group">
           <%= f.input :title %>
         </div>
@@ -48,8 +52,6 @@
           <%= f.label :image, 'Upload a photo?' %><br>
           <%= f.file_field :image %>
         </div>
-      </div>
-    </div>
   </div>
   <div class="col-md-6">
     
@@ -102,8 +104,11 @@
 
   </div>
   
-
+<%= current_user.inspect %>
+<br>
+<%= @params.inspect %>
   <div class="actions">
+    <%= hidden_field_tag(:user_id) %>
     <%= f.submit %>
   </div>
 <% end %>
