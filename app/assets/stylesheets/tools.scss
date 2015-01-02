@@ -1,3 +1,7 @@
+.col-1-4 {
+  @extend .col-md-3;
+  @extend .col-lg-3;
+}
 .col-half { 
   @extend .col-lg-6;
   @extend .col-md-6;
