@@ -11,8 +11,14 @@ gem 'devise'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
-gem 'bootstrap-sass', github: 'thomas-mcdonald/bootstrap-sass', branch: '3'  #bootstrap v3
-gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git", branch: 'rails-4' # image attachments
+
+#integrate bootstrap with sass
+gem 'bootstrap-sass', '~> 3.3.1.0'
+gem 'bootswatch-rails'
+
+# paperclip for file attachment
+gem 'paperclip', '~> 4.2.1'
+# gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git", branch: 'rails-4' # image attachments
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -31,6 +37,11 @@ gem 'turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
+
+
+# Convenience gems
+# enum for storing ratings, etc
+gem 'active_enum', github: 'adzap/active_enum'
 
 group :assets do
 

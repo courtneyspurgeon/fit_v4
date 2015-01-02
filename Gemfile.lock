@@ -1,22 +1,9 @@
 GIT
-  remote: git://github.com/thomas-mcdonald/bootstrap-sass.git
-  revision: 0e88056ac5d58fb0bbd23d3fe929eac01712d964
-  branch: 3
+  remote: git://github.com/adzap/active_enum.git
+  revision: 14fc08b0080c44f4d68611c9e63cd163d4586a12
   specs:
-    bootstrap-sass (3.0.0.0)
-      sass (~> 3.2)
-
-GIT
-  remote: git://github.com/thoughtbot/paperclip.git
-  revision: 455b87e0df49e4ed81deedd9d6e0c7aeb8cee5c5
-  branch: rails-4
-  specs:
-    paperclip (3.4.1)
-      activemodel (>= 3.0.0)
-      activerecord (>= 3.0.0)
-      activesupport (>= 3.0.0)
-      cocaine (~> 0.5.0)
-      mime-types
+    active_enum (0.9.12)
+      activesupport (>= 3.0)
 
 GEM
   remote: https://rubygems.org/
@@ -48,10 +35,14 @@ GEM
     arel (4.0.0)
     atomic (1.1.14)
     bcrypt-ruby (3.1.2)
+    bootstrap-sass (3.3.1.0)
+      sass (~> 3.2)
+    bootswatch-rails (3.2.4)
+      railties (>= 3.1)
     builder (3.1.4)
     climate_control (0.0.3)
       activesupport (>= 3.0)
-    cocaine (0.5.2)
+    cocaine (0.5.5)
       climate_control (>= 0.0.3, < 1.0)
     coffee-rails (4.0.0)
       coffee-script (>= 2.2.0)
@@ -85,6 +76,11 @@ GEM
     multi_json (1.8.0)
     mysql2 (0.3.13)
     orm_adapter (0.4.0)
+    paperclip (4.2.1)
+      activemodel (>= 3.0.0)
+      activesupport (>= 3.0.0)
+      cocaine (~> 0.5.3)
+      mime-types
     polyglot (0.3.3)
     rack (1.5.2)
     rack-test (0.6.2)
@@ -142,12 +138,14 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bootstrap-sass!
+  active_enum!
+  bootstrap-sass (~> 3.3.1.0)
+  bootswatch-rails
   devise
   jbuilder (~> 1.2)
   jquery-rails
   mysql2
-  paperclip!
+  paperclip (~> 4.2.1)
   rails (= 4.0.0)
   sass-rails (~> 4.0.0)
   sdoc

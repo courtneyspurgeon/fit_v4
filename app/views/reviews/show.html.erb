@@ -7,37 +7,37 @@
 
 <p>
   <strong>Waist fit:</strong>
-  <%= Review::WAIST_FIT[@review.waist_fit]%>
+  <%= @review.waist_fit(:name) %>
 </p>
 
 <p>
   <strong>Hip fit:</strong>
-  <%= Review::HIP_FIT[@review.hip_fit] %>
+  <%= @review.hip_fit(:name) %>
 </p>
 
 <p>
   <strong>Thigh fit:</strong>
-  <%= Review::THIGH_FIT[@review.thigh_fit] %>
+  <%= @review.thigh_fit(:name) %>
 </p>
 
 <p>
   <strong>Rise:</strong>
-  <%= Review::RISE[@review.rise] %>
+  <%= @review.rise(:name) %>
 </p>
 
 <p>
   <strong>Waist measure:</strong>
-  <%= @review.waist_measure %>
+  <%= @review.waist_measurement %>
 </p>
 
 <p>
   <strong>Hip measure:</strong>
-  <%= @review.hip_measure %>
+  <%= @review.hip_measurement %>
 </p>
 
 <p>
   <strong>Thigh measure:</strong>
-  <%= @review.thigh_measure %>
+  <%= @review.thigh_measurement %>
 </p>
 
 <p>

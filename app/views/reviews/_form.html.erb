@@ -1,4 +1,4 @@
-<div class="row">
+
 <%= form_for(@review) do |f| %>
   <% if @review.errors.any? %>
     <div id="error_explanation">
@@ -13,20 +13,46 @@
   <% end %>
 
   <div class="col-md-6">
-    <h4>About the Pant</h4>
-    <div class="form-group">
-      <%= f.label :title %><br>
-      <%= f.text_field :title %>
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title">About the Fit</h3>
+      </div>
+      <div class="panel-body">
+        <h4>Hip/Butt Fit</h4>
+        <%= f.select :hip_fit, HipFit.to_select, required: true, selected: 3 %>
+        <h4>Waist Fit</h4>
+        <%= f.select :waist_fit, WaistFit.to_select, required: true, selected: 3 %>
+        <h4>Hip/Butt Fit</h4>
+        <%= f.select :thigh_fit, ThighFit.to_select, required: true, selected: 3 %>
+        <h4>Overall, how much you like these pants?</h4>
+      </div>
     </div>
-    <div class="field">
-      <%= f.label :content, 'Comments' %><br>
-      <%= f.text_area :content, rows: '4', class: 'form-control' %>
-    </div>
+  </div>
 
-    <div class="field">
-      <%= f.label :image, 'Upload a photo?' %><br>
-      <%= f.file_field :image %>
+  <div class="col-md-6">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title">In your words</h3>
+      </div>
+      <div class="panel-body">
+        <div class="form-group">
+          <%= f.label :title %><br>
+          <%= f.text_field :title %>
+        </div>
+        <div class="field">
+          <%= f.label :content, 'Comments' %><br>
+          <%= f.text_area :content, rows: '4', class: 'form-control' %>
+        </div>
+
+        <div class="field">
+          <%= f.label :image, 'Upload a photo?' %><br>
+          <%= f.file_field :image %>
+        </div>
+      </div>
     </div>
+  </div>
+  <div class="col-md-6">
+    
 
   </div>
 
@@ -56,7 +82,7 @@
         <div class="col-md-4">
           <div class="field">
             <%= f.label :waist_measurement %><br>
-            <%= f.number_field :waist_measurement, value: (params[:waist_measure] or @member ? @member.waist_measurement : '') %>
+            <%= f.number_field :waist_measurement, value: (params[:waist_measurement] or @member ? @member.waist_measurement : '') %>
           </div>
           <div class="field">
             <%= f.label :hip_measurement %><br>
@@ -76,26 +102,7 @@
     </div>
 
       
-    <div class="field">
-      <%= f.label :waist_fit %><br>
-      <%= f.collection_select(:waist_fit, Review::WAIST_FIT, :first, :last,
-        {:selected => 3}) %>
-    </div>
-    <div class="field">
-      <%= f.label :hip_fit %><br>
-      <%= f.collection_select(:hip_fit, Review::HIP_FIT, :first, :last,
-          {:selected => 3}) %>
-    </div>
-    <div class="field">
-      <%= f.label :thigh_fit %><br>
-      <%= f.collection_select(:thigh_fit, Review::THIGH_FIT, :first, :last, 
-          {:selected => 3}) %>
-    </div>
-    <div class="field">
-      <%= f.label :rise %><br>
-      <%= f.collection_select(:rise, Review::RISE, :first, :last,
-          {:selected => 3}) %>
-    </div>
+
   </div>
   
 
@@ -103,4 +110,3 @@
     <%= f.submit %>
   </div>
 <% end %>
-</div> <!-- /.row -->
