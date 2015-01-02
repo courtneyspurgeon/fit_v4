@@ -1,0 +1,6 @@
+.col-half { 
+  @extend .col-lg-6; 
+}
+.col-full { 
+  @extend .col-xs-12; 
+}
