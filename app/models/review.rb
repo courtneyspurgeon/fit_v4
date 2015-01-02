@@ -12,7 +12,11 @@ class Review < ActiveRecord::Base
 
   #validations
   validates :user_id, :presence => { :message => "How did you get here without a user id?" }
-  validates :pant_id, :presence => { :message => "You must select the pant you're reviewing." }
+  validates :pant_id, presence: true
+  validates :title, presence: true
+  validates :hip_measurement, presence: true
+  validates :thigh_measurement, presence: true
+  validates :waist_measurement, presence: true
 
   # TODO: validates_associated :pant
 

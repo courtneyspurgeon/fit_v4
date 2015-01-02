@@ -21,6 +21,7 @@ class ReviewsController < ApplicationController
   # GET /reviews/new
   def new
     @review = Review.new
+    @review_user = current_user
 
     setup_measurements
   end
@@ -33,7 +34,8 @@ class ReviewsController < ApplicationController
   # POST /reviews.json
   def create
     @review = Review.new(review_params)
-    @review.user_id = current_user.id
+    @review.user = current_user
+
 
     respond_to do |format|
       if @review.save
@@ -79,7 +81,7 @@ class ReviewsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def review_params
       params.require(:review).permit(:title, :waist_fit, :hip_fit, :thigh_fit, :rise, 
-          :waist_measure, :hip_measure, :thigh_measure, :content, :image)
+          :waist_measurement, :hip_measurement, :thigh_measurement, :content, :image, :pant_id)
     end
 
     def setup_measurements

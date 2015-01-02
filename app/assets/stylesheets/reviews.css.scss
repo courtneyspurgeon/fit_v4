@@ -5,3 +5,17 @@
 .reviews .panel-primary {
   background-color: transparent;
 }
+
+.review-form--right {
+  @extend .col-md-3;
+}
+.review-form--left {
+  @extend .col-md-9;
+}
+
+.review-form--fit {
+  @extend .col-md-6;
+}
+.review-form--words {
+  @extend .col-md-6;
+}

@@ -1,6 +1,7 @@
 <div class="row">
 
 <%= simple_form_for(@review) do |f| %>
+
   <% if @review.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h2>
@@ -12,32 +13,54 @@
       </ul>
     </div>
   <% end %>
+
   <div class="col-full">
+    <%= params.inspect %>
+    <br>
+    <%= params[:review] %>
     <h3 class="section-title">Reviewing Pant: </h3>
     
   </div>
-  <div class="col-1-4">
-    <%= f.label :pant_id, 'Select the Pant' %>
-    <% pants_array = Pant.all.map { |pant| [pant.brand.name + ' - ' + pant.name, pant.id] } %>
-    <%#= f.collection_select(:pant_id, Pant.all, :id, :name) %>
-    <%#= f.collection_select(:pant_id, pants_array) %>
-    <%= f.select(:pant_id, pants_array) %>
-    <%#= f.options_for_select(:pant_id, pants_array) %>
+  <div class="review-form--right review-form--pant">
+      <%= f.label :pant_id, 'Select the Pant' %>
+      <% pants_array = Pant.all.map { |pant| [pant.brand.name + ' - ' + pant.name, pant.id] } %>
+      <%= f.select(:pant_id, pants_array) %>
   </div>
+    
 
-  <div class="col-half">
+  <div class="review-form--left">
+  <div class="review-form--fit">
       <h3 class="panel-title">About the Fit</h3>
       
-        <%= f.label :hip_fit, 'Hip/Butt Fit' %>
-        <%= f.select :hip_fit, HipFit.to_select, required: true, selected: 3 %>
-        <%= f.label :waist_fit %>
-        <%= f.select :waist_fit, WaistFit.to_select, required: true, selected: 3 %>
-        <%= f.label :thigh_fit %>
-        <%= f.select :thigh_fit, ThighFit.to_select, required: true, selected: 3 %>
-        <h4>Overall, how much you like these pants?</h4>
+      <%= f.label :hip_fit, 'Hip/Butt Fit' %>
+      <%= f.select :hip_fit, HipFit.to_select, required: true, selected: 3 %>
+      <%= f.label :waist_fit %>
+      <%= f.select :waist_fit, WaistFit.to_select, required: true, selected: 3 %>
+      <%= f.label :thigh_fit %>
+      <%= f.select :thigh_fit, ThighFit.to_select, required: true, selected: 3 %>
+      <h4>Overall, how much you like these pants?</h4>
+
+      <div class="page-header">
+        <h3>Reviewing with your measurements <small>edit?</small></h3>
+        <div class="field">
+            <%= @review_user ? @review_user.waist_measurement : '' %>
+            <%= f.label :waist_measurement %>
+            <%= f.number_field :waist_measurement, value: (@review.waist_measurement or (@review_user ? @review_user.waist_measurement : '') ) %>
+          </div>
+          <div class="field">
+            <%= f.label :hip_measurement %>
+            <%= f.number_field :hip_measurement, value: (@review.hip_measurement or (@review_user ? @review_user.hip_measurement : '') ) %>
+          </div>
+          <div class="field">
+            <%= f.label :thigh_measurement %>
+            <%= f.number_field :thigh_measurement, value: (@review.thigh_measurement or (@review_user ? @review_user.thigh_measurement : '') ) %>
+          </div>
+        <div>Image</div>
+
+      </div>
   </div>
 
-  <div class="col-half">
+  <div class="review-form--words">
         <h3 class="panel-title">In your words</h3>
       
         <div class="form-group">
@@ -53,64 +76,17 @@
           <%= f.file_field :image %>
         </div>
   </div>
-  <div class="col-md-6">
-    
-
-  </div>
-
-  <div class="col-md-6">
-
-    <button type="button" class="btn btn-danger" data-toggle="collapse" data-target="#current_measurements">
-      toggle measurements
-    </button>
-
-
-    <h4>Rate the Fit</h4>
-    <% if @user %>
-      <div class="radio">
-        <label><input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>Rate using my saved measurements</label>
-      </div>
-      <div class="radio">
-        <label>
-          <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2" data-toggle="collapse" data-target="#current_measurements">Enter new measurements
-        </label>
-      </div>
-    <% else %>
-      Please enter your measurements:
-    <% end %>
-
-    <div id="current_measurements" class="collapse in">
-      <div class="row">
-        <div class="col-md-4">
-          <div class="field">
-            <%= f.input :waist_measurement, value: (params[:waist_measurement] or @user ? @user.waist_measurement : '') %>
-          </div>
-          <div class="field">
-            <%= f.input :hip_measurement %>
-          </div>
-          <div class="field">
-            <%= f.input :thigh_measurement %>
-          </div>
-        </div>
-        <div class="col-md-8">
-          Picture explaining how to measure
-        </div>
-
-      </div>
-        
-    </div>
-
-      
-
-  </div>
   
-<%= current_user.inspect %>
-<br>
-<%= @params.inspect %>
-  <div class="actions">
-    <%= hidden_field_tag(:user_id) %>
-    <%= f.submit %>
-  </div>
-<% end %>
 
+  </div>
+
+
+  <div class="review-form--submit">
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  </div>
+
+    
+  <% end %> <!-- end form -->
 </div>
