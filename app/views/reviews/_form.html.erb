@@ -82,7 +82,7 @@
         <div class="col-md-4">
           <div class="field">
             <%= f.label :waist_measurement %><br>
-            <%= f.number_field :waist_measurement, value: (params[:waist_measurement] or @member ? @member.waist_measurement : '') %>
+            <%= f.number_field :waist_measurement, value: (params[:waist_measurement] or @user ? @user.waist_measurement : '') %>
           </div>
           <div class="field">
             <%= f.label :hip_measurement %><br>
