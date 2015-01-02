@@ -21,25 +21,20 @@
   </div>
   <div class="field">
     <%= f.label :year %><br>
-    <%= f.collection_select :year, Pant::YEAR_OPTIONS, :first, :last,
-        {:selected => 1} %>
   </div>
 
   <div class="field">
     <%= f.label :leg_cut %><br>
-    <%= f.collection_select :leg_cut, Pant::LEG_CUT, :first, :last,
-        {:selected => 2} %>
+    <%= f.select :leg_cut, LegCut.to_select, required: true %>
   </div>
   <div class="field">
     <%= f.label :body_shape %><br>
-    <%= f.collection_select :body_shape, Pant::BODY_SHAPE, :first, :last,
-        {:selected => 2} %>
+    <%= f.select :body_shape, BodyShape.to_select, required: true %>
   </div>
 
   <div class="field">
     <%= f.label :rise %><br>
-    <%= f.collection_select :rise, Pant::RISE, :first, :last,
-        {:selected => 3} %>
+    <%= f.select :rise, Rise.to_select, required: true, selected: 3 %>
     <%= f.label :exact_rise %><br>
     <%= f.text_field :exact_rise %>
   </div>

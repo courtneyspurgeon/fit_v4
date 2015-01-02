@@ -13,4 +13,5 @@ class Rise < ActiveEnum::Base
 
   value :id => 5, 
         :name => 'High Rise'
+
 end
