@@ -12,9 +12,8 @@ gem 'devise'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
-#integrate bootstrap with sass
-gem 'bootstrap-sass', '~> 3.3.1.0'
-gem 'bootswatch-rails'
+# Foundation
+gem 'foundation-rails', '5.4.5'
 
 # paperclip for file attachment
 gem 'paperclip', '~> 4.2.1'
