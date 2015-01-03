@@ -1,5 +1,5 @@
 class Review < ActiveRecord::Base
-  belongs_to :pant
+  belongs_to :pant_size
   belongs_to :user
 
   has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100>", :full => "600x600" }

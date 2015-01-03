@@ -2,7 +2,7 @@ class Pant < ActiveRecord::Base
 
   # Relationships
   belongs_to :brand
-  has_many :reviews, dependent: :destroy
+  has_many :reviews, through: :pant_sizes, dependent: :destroy
   has_many :store_links
   has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100>", :full => "600x600" }
 

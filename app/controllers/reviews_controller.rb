@@ -81,7 +81,8 @@ class ReviewsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def review_params
       params.require(:review).permit(:title, :waist_fit, :hip_fit, :thigh_fit, :rise, 
-          :waist_measurement, :hip_measurement, :thigh_measurement, :content, :image, :pant_id)
+          :waist_measurement, :hip_measurement, :thigh_measurement, :content, :image, 
+          :pant_id, :pant_size_id)
     end
 
     def setup_measurements
