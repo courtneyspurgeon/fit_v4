@@ -2,6 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+/* Review New */
 .reviews .panel-primary {
   background-color: transparent;
 }
@@ -18,4 +20,15 @@
 }
 .review-form--words {
   @extend .col-md-6;
+}
+
+
+/* Review List */
+.review-list--single {
+  @extend .clearfix;
+  background: #fff;
+  margin-bottom: 20px;
+}
+.review-list--img {
+  float: left;
 }

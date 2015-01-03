@@ -1,5 +1,17 @@
 <h1>Listing reviews</h1>
 
+<div class="row">
+  <div class="review-list--wrapper">
+
+    <% @reviews.each do |review| %>
+      <%= render 'review_single', review: review %>
+    <% end %>
+    
+  </div>
+</div> 
+
+
+
 <table>
   <thead>
     <tr>
