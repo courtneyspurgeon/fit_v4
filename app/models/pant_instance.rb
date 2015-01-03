@@ -1,4 +1,4 @@
-class PantSize < ActiveRecord::Base
+class PantInstance < ActiveRecord::Base
 
   # Relationships
   belongs_to :pant

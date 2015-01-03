@@ -1,7 +1,7 @@
 class Review < ActiveRecord::Base
   belongs_to :pant
   belongs_to :user
-  belongs_to :pant_size
+  belongs_to :pant_instance
 
   has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100>", :full => "600x600" }
 
@@ -21,6 +21,6 @@ class Review < ActiveRecord::Base
 
   # TODO: validates_associated :pant
 
-  accepts_nested_attributes_for :pant_size
+  accepts_nested_attributes_for :pant_instance
 
 end

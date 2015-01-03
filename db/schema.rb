@@ -37,14 +37,17 @@ ActiveRecord::Schema.define(version: 20150103001803) do
     t.datetime "updated_at"
   end
 
-  create_table "pant_sizes", force: true do |t|
+  create_table "pant_instances", force: true do |t|
     t.integer  "pant_id"
     t.text     "size"
+    t.integer  "waist_measurement"
+    t.integer  "hip_measurement"
+    t.integer  "thigh_measurement"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "pant_sizes", ["pant_id"], name: "index_pant_sizes_on_pant_id", using: :btree
+  add_index "pant_instances", ["pant_id"], name: "index_pant_instances_on_pant_id", using: :btree
 
   create_table "pants", force: true do |t|
     t.string   "name"
@@ -67,7 +70,7 @@ ActiveRecord::Schema.define(version: 20150103001803) do
 
   create_table "reviews", force: true do |t|
     t.integer  "pant_id"
-    t.integer  "pant_size_id"
+    t.integer  "pant_instance_id"
     t.integer  "user_id"
     t.string   "title"
     t.text     "content"
@@ -87,7 +90,7 @@ ActiveRecord::Schema.define(version: 20150103001803) do
   end
 
   add_index "reviews", ["pant_id"], name: "index_reviews_on_pant_id", using: :btree
-  add_index "reviews", ["pant_size_id"], name: "index_reviews_on_pant_size_id", using: :btree
+  add_index "reviews", ["pant_instance_id"], name: "index_reviews_on_pant_instance_id", using: :btree
   add_index "reviews", ["user_id"], name: "index_reviews_on_user_id", using: :btree
 
   create_table "store_links", force: true do |t|

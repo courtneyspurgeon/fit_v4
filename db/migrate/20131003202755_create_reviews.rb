@@ -2,7 +2,7 @@ class CreateReviews < ActiveRecord::Migration
   def change
     create_table :reviews do |t|
       t.integer   :pant_id
-      t.integer   :pant_size_id
+      t.integer   :pant_instance_id
       t.integer   :user_id
       t.string    :title
       t.text      :content
@@ -18,7 +18,7 @@ class CreateReviews < ActiveRecord::Migration
     end
 
     add_index :reviews, :pant_id
-    add_index :reviews, :pant_size_id
+    add_index :reviews, :pant_instance_id
     add_index :reviews, :user_id
   end
 end

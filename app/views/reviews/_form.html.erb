@@ -26,8 +26,8 @@
       <% pants_array = Pant.all.map { |pant| [pant.brand.name + ' - ' + pant.name, pant.id] } %>
       <%= f.select(:pant_id, pants_array) %>
       <!-- Pant Size -->
-      <%= f.label :pant_size_id, 'Select the Size' %>
-      <% pants_array = PantSize.all.map { |pant_size| [pant_size.size, pant_size.id] } %>
+      <%= f.label :pant_instance_id, 'Select the Size' %>
+      <% pants_array = PantInstance.all.map { |pant_size| [pant_size.size, pant_size.id] } %>
       <%= f.select(:pant_id, pants_array) %>
 
   </div>
