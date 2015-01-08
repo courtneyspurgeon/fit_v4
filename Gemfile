@@ -13,7 +13,7 @@ gem 'devise'
 gem 'sass-rails', '~> 4.0.0'
 
 # Foundation
-gem 'foundation-rails', '5.4.5'
+gem 'foundation-rails'
 
 # paperclip for file attachment
 gem 'paperclip', '~> 4.2.1'

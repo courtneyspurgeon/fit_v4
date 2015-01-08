@@ -142,7 +142,7 @@ PLATFORMS
 DEPENDENCIES
   active_enum!
   devise
-  foundation-rails (= 5.4.5)
+  foundation-rails
   jbuilder (~> 1.2)
   jquery-rails
   mysql2
